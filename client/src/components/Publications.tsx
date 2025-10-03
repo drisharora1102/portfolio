@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { BookOpen, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
-import { useState } from 'react';
+import { BookOpen, ExternalLink } from 'lucide-react';
 
 const publications = [
   {
@@ -56,18 +55,6 @@ const publications = [
 ];
 
 export default function Publications() {
-  const [expandedIndices, setExpandedIndices] = useState<Set<number>>(new Set());
-
-  const toggleExpanded = (index: number) => {
-    const newSet = new Set(expandedIndices);
-    if (newSet.has(index)) {
-      newSet.delete(index);
-    } else {
-      newSet.add(index);
-    }
-    setExpandedIndices(newSet);
-  };
-
   return (
     <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
@@ -81,10 +68,20 @@ export default function Publications() {
             Publications
           </h2>
 
-          <p className="text-muted-foreground mb-12">
-            {publications.filter(p => p.status === 'Published').length} published papers •{' '}
-            {publications.filter(p => p.status === 'Submitted').length} under review
-          </p>
+          <div className="flex gap-6 mb-12">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-chart-3" />
+              <span className="text-muted-foreground text-sm">
+                {publications.filter(p => p.status === 'Published').length} Published
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-accent" />
+              <span className="text-muted-foreground text-sm">
+                {publications.filter(p => p.status === 'Submitted').length} Under Review
+              </span>
+            </div>
+          </div>
 
           <div className="space-y-4">
             {publications.map((pub, index) => (
@@ -95,8 +92,7 @@ export default function Publications() {
                 transition={{ delay: index * 0.05 }}
               >
                 <Card
-                  className="p-6 backdrop-blur-md bg-card/50 border-card-border hover-elevate cursor-pointer"
-                  onClick={() => toggleExpanded(index)}
+                  className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-elevate"
                   data-testid={`publication-${index}`}
                 >
                   <div className="flex items-start justify-between gap-4">
@@ -104,48 +100,41 @@ export default function Publications() {
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <Badge
                           variant={pub.type === 'Journal' ? 'default' : 'secondary'}
-                          className="text-xs font-mono"
+                          className="text-xs font-mono px-2.5 py-0.5"
                         >
                           {pub.type}
                         </Badge>
                         <Badge
                           variant={pub.status === 'Published' ? 'default' : 'outline'}
-                          className={`text-xs font-mono ${
+                          className={`text-xs font-mono px-2.5 py-0.5 ${
                             pub.status === 'Published'
                               ? 'bg-chart-3/20 text-chart-3 border-chart-3/30'
-                              : 'border-accent/30 text-accent'
+                              : 'border-accent/30 text-accent bg-accent/5'
                           }`}
                         >
                           {pub.status}
                         </Badge>
                       </div>
 
-                      <h3 className="text-lg font-semibold text-foreground mb-2 leading-snug">
+                      <h3 className="text-lg font-semibold text-foreground mb-3 leading-snug">
                         {pub.title}
                       </h3>
 
                       <p className="text-sm text-muted-foreground italic">{pub.journal}</p>
                     </div>
 
-                    <div className="flex-shrink-0 flex items-center gap-2">
-                      {pub.status === 'Published' && (
-                        <button
-                          className="p-2 hover-elevate active-elevate-2 rounded-md"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            console.log('View publication', pub.title);
-                          }}
-                          data-testid={`link-publication-${index}`}
-                        >
-                          <ExternalLink className="w-4 h-4 text-muted-foreground" />
-                        </button>
-                      )}
-                      {expandedIndices.has(index) ? (
-                        <ChevronUp className="w-5 h-5 text-muted-foreground" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-muted-foreground" />
-                      )}
-                    </div>
+                    {pub.status === 'Published' && (
+                      <button
+                        className="flex-shrink-0 p-2.5 hover-elevate active-elevate-2 rounded-md border border-border bg-background/50"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          console.log('View publication', pub.title);
+                        }}
+                        data-testid={`link-publication-${index}`}
+                      >
+                        <ExternalLink className="w-4 h-4 text-primary" />
+                      </button>
+                    )}
                   </div>
                 </Card>
               </motion.div>

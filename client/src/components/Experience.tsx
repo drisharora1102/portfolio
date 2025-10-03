@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { Briefcase, CheckCircle2 } from 'lucide-react';
+import { Briefcase, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 const experiences = [
@@ -87,9 +87,9 @@ export default function Experience() {
           </h2>
 
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block" />
+            <div className="absolute left-0 top-8 bottom-8 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-primary/50 hidden md:block" />
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
@@ -98,38 +98,50 @@ export default function Experience() {
                   transition={{ delay: index * 0.1 }}
                   className="relative"
                 >
-                  <div className="absolute left-8 top-6 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block" />
+                  <div className="absolute -left-1.5 top-8 w-3 h-3 rounded-full bg-primary border-2 border-background hidden md:block z-10" />
 
-                  <Card className="md:ml-20 p-6 backdrop-blur-md bg-card/50 border-card-border hover-elevate">
+                  <Card className="md:ml-8 p-0 overflow-hidden backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300">
                     <div
-                      className="cursor-pointer"
+                      className="cursor-pointer p-6 hover-elevate"
                       onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                       data-testid={`experience-${index}`}
                     >
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
-                        <div>
-                          <h3 className="text-xl font-semibold text-foreground mb-1">
-                            {exp.role}
-                          </h3>
-                          <p className="text-primary font-medium">{exp.company}</p>
-                          {exp.supervisor && (
-                            <p className="text-sm text-muted-foreground mt-1">
-                              Under {exp.supervisor}
-                            </p>
-                          )}
-                          {exp.location && (
-                            <p className="text-sm text-muted-foreground">{exp.location}</p>
-                          )}
-                        </div>
-                        <div className="text-sm font-mono text-muted-foreground flex-shrink-0">
-                          {exp.period}
+                      <div className="flex items-start justify-between gap-4 mb-4">
+                        <div className="flex-1">
+                          <div className="flex items-start justify-between gap-4 mb-2">
+                            <h3 className="text-xl font-semibold text-foreground">
+                              {exp.role}
+                            </h3>
+                            <div className="flex-shrink-0">
+                              {expandedIndex === index ? (
+                                <ChevronUp className="w-5 h-5 text-muted-foreground" />
+                              ) : (
+                                <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                              )}
+                            </div>
+                          </div>
+                          <div className="flex flex-col gap-1">
+                            <p className="text-primary font-medium text-lg">{exp.company}</p>
+                            {exp.supervisor && (
+                              <p className="text-sm text-muted-foreground">
+                                {exp.supervisor}
+                              </p>
+                            )}
+                            {exp.location && (
+                              <p className="text-sm text-muted-foreground">{exp.location}</p>
+                            )}
+                          </div>
                         </div>
                       </div>
 
+                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm font-mono text-primary">
+                        {exp.period}
+                      </div>
+
                       {exp.project && (
-                        <div className="mb-4 px-3 py-2 bg-accent/10 border border-accent/20 rounded-md">
-                          <p className="text-sm text-accent font-medium">
-                            Project: {exp.project}
+                        <div className="mt-4 p-4 bg-gradient-to-r from-accent/10 to-accent/5 border-l-2 border-accent rounded-r-md">
+                          <p className="text-sm font-medium text-accent">
+                            {exp.project}
                           </p>
                         </div>
                       )}
@@ -144,15 +156,17 @@ export default function Experience() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-4 space-y-3">
-                        {exp.achievements.map((achievement, achIndex) => (
-                          <div key={achIndex} className="flex gap-3 items-start">
-                            <CheckCircle2 className="w-4 h-4 text-chart-3 mt-1 flex-shrink-0" />
-                            <p className="text-sm text-foreground/90 leading-relaxed">
-                              {achievement}
-                            </p>
-                          </div>
-                        ))}
+                      <div className="px-6 pb-6 pt-2 border-t border-border/50">
+                        <div className="space-y-3 mt-4">
+                          {exp.achievements.map((achievement, achIndex) => (
+                            <div key={achIndex} className="flex gap-3 items-start group">
+                              <div className="w-1.5 h-1.5 rounded-full bg-chart-3 mt-2 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                              <p className="text-sm text-foreground/90 leading-relaxed">
+                                {achievement}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </motion.div>
                   </Card>

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { GraduationCap, Award } from 'lucide-react';
+import { GraduationCap, Award, Star } from 'lucide-react';
 
 const education = [
   {
@@ -50,24 +50,32 @@ export default function About() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="p-6 backdrop-blur-md bg-card/50 border-card-border hover-elevate">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground mb-1">
+                <Card className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-elevate">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-foreground mb-2">
                         {edu.school}
                       </h3>
-                      <p className="text-muted-foreground text-sm">{edu.location}</p>
+                      <p className="text-muted-foreground text-sm flex items-center gap-1.5">
+                        <span className="w-1 h-1 rounded-full bg-muted-foreground" />
+                        {edu.location}
+                      </p>
                     </div>
-                    <div className="flex items-center gap-2 text-sm font-mono text-muted-foreground">
-                      <span>{edu.period}</span>
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm font-mono text-primary h-fit">
+                      {edu.period}
                     </div>
                   </div>
-                  <p className="text-foreground font-medium mb-1">{edu.degree}</p>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Concentration: {edu.concentration}
-                  </p>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
-                    <span className="text-sm font-mono text-primary font-semibold">
+                  
+                  <div className="space-y-2 mb-4">
+                    <p className="text-foreground font-medium">{edu.degree}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Concentration: {edu.concentration}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-chart-3/20 to-chart-3/10 border border-chart-3/30 w-fit">
+                    <Star className="w-4 h-4 text-chart-3" />
+                    <span className="text-sm font-mono text-chart-3 font-semibold">
                       GPA: {edu.gpa}
                     </span>
                   </div>
@@ -88,10 +96,13 @@ export default function About() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex gap-4 items-start"
               >
-                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-accent mt-2" />
-                <p className="text-foreground/90 leading-relaxed">{achievement}</p>
+                <Card className="p-5 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-accent/30 transition-all duration-300 hover-elevate">
+                  <div className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 w-2 h-2 rounded-full bg-accent mt-2" />
+                    <p className="text-foreground/90 leading-relaxed">{achievement}</p>
+                  </div>
+                </Card>
               </motion.div>
             ))}
           </div>

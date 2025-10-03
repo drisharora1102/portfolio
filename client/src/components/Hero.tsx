@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Mail, Github, Linkedin, MapPin } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Download } from 'lucide-react';
+import resumePdf from '@assets/Drishti Arora DePaul University_1759465873986.pdf';
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
@@ -26,6 +27,15 @@ export default function Hero() {
     { label: 'Projects', value: '3' },
     { label: 'GPA', value: '4.0' },
   ];
+
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = resumePdf;
+    link.download = 'Drishti_Arora_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -71,7 +81,7 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-300% animate-gradient">
                 Drishti Arora
               </span>
             </h1>
@@ -107,8 +117,9 @@ export default function Hero() {
                 size="lg" 
                 className="gap-2 backdrop-blur-sm"
                 data-testid="button-download-resume"
-                onClick={() => console.log('Download Resume clicked')}
+                onClick={handleDownloadResume}
               >
+                <Download className="w-4 h-4" />
                 Download Resume
               </Button>
             </div>
@@ -122,7 +133,7 @@ export default function Hero() {
                 <Mail className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/drishti-arora"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
@@ -131,7 +142,7 @@ export default function Hero() {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/drishti-arora"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
@@ -155,7 +166,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
-                  className="backdrop-blur-md bg-card/50 border border-card-border rounded-lg p-6 hover-elevate"
+                  className="backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border border-card-border rounded-lg p-6 hover-elevate"
                 >
                   <div className="text-4xl font-bold font-serif bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent mb-2">
                     {stat.value}

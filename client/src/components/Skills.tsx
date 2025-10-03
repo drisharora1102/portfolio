@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
 import { Cpu, Code, Database, Lightbulb } from 'lucide-react';
 import { useState } from 'react';
 
@@ -73,6 +74,17 @@ const skillCategories = [
   },
 ];
 
+const certifications = [
+  'IBM Data Science Professional Certificate',
+  'Google Data Analytics Professional Certificate',
+  'Developer Virtual Experience Program, Accenture',
+  'Data Analytics Consulting Virtual Internship, KPMG',
+  'DSE200X: Python for Data Science, UC San Diego',
+  'CCNAv7: Introduction to Networks, Cisco',
+  'Data Analytics & Visualization Virtual Experience, Accenture',
+  'HKU100X: Blockchain and Fintech, HKU',
+];
+
 export default function Skills() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -88,15 +100,15 @@ export default function Skills() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-8">Skills</h2>
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-8">Skills & Expertise</h2>
 
           <div className="flex flex-wrap gap-3 mb-12">
             <button
               onClick={() => setSelectedCategory(null)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 selectedCategory === null
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-secondary text-secondary-foreground hover-elevate'
+                  ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
+                  : 'bg-card/50 text-muted-foreground border border-border hover-elevate'
               }`}
               data-testid="filter-all"
             >
@@ -106,10 +118,10 @@ export default function Skills() {
               <button
                 key={category.title}
                 onClick={() => setSelectedCategory(category.title)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   selectedCategory === category.title
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-secondary text-secondary-foreground hover-elevate'
+                    ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
+                    : 'bg-card/50 text-muted-foreground border border-border hover-elevate'
                 }`}
                 data-testid={`filter-${category.title.toLowerCase().replace(/\s+/g, '-')}`}
               >
@@ -118,7 +130,7 @@ export default function Skills() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {filteredCategories.map((category, index) => {
               const Icon = category.icon;
               return (
@@ -127,32 +139,35 @@ export default function Skills() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="backdrop-blur-md bg-card/50 border border-card-border rounded-lg p-6 hover-elevate"
                 >
-                  <div className="flex items-center gap-3 mb-6">
-                    <Icon className={`w-6 h-6 ${category.color}`} />
-                    <h3 className="text-xl font-semibold text-foreground">
-                      {category.title}
-                    </h3>
-                  </div>
+                  <Card className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-elevate h-full">
+                    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/50">
+                      <div className={`p-2.5 rounded-lg bg-gradient-to-br from-${category.color.split('-')[1]}/20 to-${category.color.split('-')[1]}/10 border border-${category.color.split('-')[1]}/30`}>
+                        <Icon className={`w-5 h-5 ${category.color}`} />
+                      </div>
+                      <h3 className="text-xl font-semibold text-foreground">
+                        {category.title}
+                      </h3>
+                    </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, skillIndex) => (
-                      <motion.div
-                        key={skillIndex}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: index * 0.1 + skillIndex * 0.02 }}
-                      >
-                        <Badge
-                          variant="outline"
-                          className="font-mono text-xs px-3 py-1 border-border/50 bg-background/30 hover-elevate"
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, skillIndex) => (
+                        <motion.div
+                          key={skillIndex}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: index * 0.1 + skillIndex * 0.02 }}
                         >
-                          {skill}
-                        </Badge>
-                      </motion.div>
-                    ))}
-                  </div>
+                          <Badge
+                            variant="outline"
+                            className="font-mono text-xs px-3 py-1.5 border-border/50 bg-background/40 hover:bg-primary/10 hover:border-primary/30 transition-all"
+                          >
+                            {skill}
+                          </Badge>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </Card>
                 </motion.div>
               );
             })}
@@ -162,26 +177,27 @@ export default function Skills() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-12 backdrop-blur-md bg-card/50 border border-card-border rounded-lg p-6"
           >
-            <h3 className="text-xl font-semibold text-foreground mb-4">Certifications</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                'IBM Data Science Professional Certificate',
-                'Google Data Analytics Professional Certificate',
-                'Developer Virtual Experience Program, Accenture',
-                'Data Analytics Consulting Virtual Internship, KPMG',
-                'DSE200X: Python for Data Science, UC San Diego',
-                'CCNAv7: Introduction to Networks, Cisco',
-                'Data Analytics & Visualization Virtual Experience, Accenture',
-                'HKU100X: Blockchain and Fintech, HKU',
-              ].map((cert, index) => (
-                <div key={index} className="flex gap-2 items-start">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-sm text-foreground/80">{cert}</p>
-                </div>
-              ))}
-            </div>
+            <Card className="p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50">
+              <h3 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
+                <div className="w-1 h-6 bg-gradient-to-b from-accent to-primary rounded-full" />
+                Certifications
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {certifications.map((cert, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 + index * 0.05 }}
+                    className="flex gap-3 items-start p-4 rounded-lg bg-gradient-to-r from-background/50 to-card/30 border border-border/30 hover:border-accent/30 transition-all hover-elevate"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                    <p className="text-sm text-foreground/80 leading-relaxed">{cert}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
           </motion.div>
         </motion.div>
       </div>

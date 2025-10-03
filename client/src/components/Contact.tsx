@@ -38,22 +38,23 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <Card className="p-8 backdrop-blur-md bg-card/50 border-card-border h-full">
+              <Card className="p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 h-full">
                 <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
+                    <div className="p-3 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30">
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Location</p>
                       <p className="text-foreground font-medium">Chicago, IL</p>
+                      <p className="text-sm text-muted-foreground">+1-224-254-1909</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-accent/10 border border-accent/20">
+                    <div className="p-3 rounded-lg bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/30">
                       <Mail className="w-5 h-5 text-accent" />
                     </div>
                     <div>
@@ -68,28 +69,36 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t border-border">
+                  <div className="pt-6 border-t border-border/50">
                     <p className="text-sm text-muted-foreground mb-4">Connect with me</p>
-                    <div className="flex gap-3">
+                    <div className="flex flex-col gap-3">
                       <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/drishti-arora"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded-md bg-background border border-border hover-elevate active-elevate-2"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-background to-card border border-border hover:border-primary/50 transition-all hover-elevate active-elevate-2 group"
                         data-testid="link-linkedin-contact"
                       >
-                        <Linkedin className="w-5 h-5" />
-                        <span className="text-sm">LinkedIn</span>
+                        <Linkedin className="w-5 h-5 text-primary" />
+                        <div className="flex-1">
+                          <span className="text-sm font-medium">LinkedIn</span>
+                          <p className="text-xs text-muted-foreground">Professional Network</p>
+                        </div>
+                        <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
                       <a
-                        href="https://github.com"
+                        href="https://github.com/drishti-arora"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded-md bg-background border border-border hover-elevate active-elevate-2"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-background to-card border border-border hover:border-primary/50 transition-all hover-elevate active-elevate-2 group"
                         data-testid="link-github-contact"
                       >
-                        <Github className="w-5 h-5" />
-                        <span className="text-sm">GitHub</span>
+                        <Github className="w-5 h-5 text-primary" />
+                        <div className="flex-1">
+                          <span className="text-sm font-medium">GitHub</span>
+                          <p className="text-xs text-muted-foreground">Code Repository</p>
+                        </div>
+                        <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
                     </div>
                   </div>
@@ -102,7 +111,7 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <Card className="p-8 backdrop-blur-md bg-card/50 border-card-border">
+              <Card className="p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50">
                 <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -118,7 +127,7 @@ export default function Contact() {
                       placeholder="Your name"
                       required
                       data-testid="input-name"
-                      className="bg-background/50"
+                      className="bg-background/50 border-border/50 focus:border-primary/50"
                     />
                   </div>
 
@@ -134,7 +143,7 @@ export default function Contact() {
                       placeholder="your.email@example.com"
                       required
                       data-testid="input-email"
-                      className="bg-background/50"
+                      className="bg-background/50 border-border/50 focus:border-primary/50"
                     />
                   </div>
 
@@ -150,7 +159,7 @@ export default function Contact() {
                       rows={5}
                       required
                       data-testid="input-message"
-                      className="resize-none bg-background/50"
+                      className="resize-none bg-background/50 border-border/50 focus:border-primary/50"
                     />
                   </div>
 
@@ -170,5 +179,23 @@ export default function Contact() {
         </motion.div>
       </div>
     </div>
+  );
+}
+
+function ExternalLink({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+      />
+    </svg>
   );
 }
