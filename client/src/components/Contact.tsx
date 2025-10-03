@@ -49,7 +49,6 @@ export default function Contact() {
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Location</p>
                       <p className="text-foreground font-medium">Chicago, IL</p>
-                      <p className="text-sm text-muted-foreground">+1-224-254-1909</p>
                     </div>
                   </div>
 
@@ -60,11 +59,11 @@ export default function Contact() {
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Email</p>
                       <a
-                        href="mailto:darora1@depaul.edu"
+                        href="mailto:drishtiarora1102@gmail.com"
                         className="text-foreground font-medium hover:text-accent transition-colors"
                         data-testid="link-email-contact"
                       >
-                        darora1@depaul.edu
+                        drishtiarora1102@gmail.com
                       </a>
                     </div>
                   </div>
@@ -73,7 +72,7 @@ export default function Contact() {
                     <p className="text-sm text-muted-foreground mb-4">Connect with me</p>
                     <div className="flex flex-col gap-3">
                       <a
-                        href="https://www.linkedin.com/in/drishti-arora"
+                        href="https://www.linkedin.com/in/aroradrishti/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-background to-card border border-border hover:border-primary/50 transition-all hover-elevate active-elevate-2 group"
@@ -87,7 +86,7 @@ export default function Contact() {
                         <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
                       <a
-                        href="https://github.com/drishti-arora"
+                        href="https://github.com/aroradrishti"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-background to-card border border-border hover:border-primary/50 transition-all hover-elevate active-elevate-2 group"

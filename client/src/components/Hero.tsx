@@ -22,12 +22,6 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  const stats = [
-    { label: 'Publications', value: '8' },
-    { label: 'Projects', value: '3' },
-    { label: 'GPA', value: '4.0' },
-  ];
-
   const handleDownloadResume = () => {
     const link = document.createElement('a');
     link.href = resumePdf;
@@ -64,7 +58,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,7 +68,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="flex items-center gap-2 text-muted-foreground mb-4"
+              className="flex items-center justify-center gap-2 text-muted-foreground mb-6"
             >
               <MapPin className="w-4 h-4" />
               <span className="text-sm">Chicago, IL</span>
@@ -97,21 +91,13 @@ export default function Hero() {
               </p>
             </div>
 
-            <p className="text-lg text-foreground/90 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-lg text-foreground/90 mb-8 leading-relaxed max-w-2xl mx-auto">
               MS in Computer Science at DePaul University, specializing in Data Science. 
               Passionate about developing AI solutions for healthcare and building intelligent systems 
               that make a real-world impact.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-12">
-              <Button 
-                size="lg" 
-                className="gap-2"
-                data-testid="button-view-projects"
-                onClick={() => console.log('View Projects clicked')}
-              >
-                View Projects
-              </Button>
+            <div className="flex justify-center mb-12">
               <Button 
                 variant="outline" 
                 size="lg" 
@@ -124,16 +110,16 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center">
               <a
-                href="mailto:darora1@depaul.edu"
+                href="mailto:drishtiarora1102@gmail.com"
                 className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
                 data-testid="link-email"
               >
                 <Mail className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/drishti-arora"
+                href="https://www.linkedin.com/in/aroradrishti/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
@@ -142,7 +128,7 @@ export default function Hero() {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://github.com/drishti-arora"
+                href="https://github.com/aroradrishti"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
@@ -150,30 +136,6 @@ export default function Hero() {
               >
                 <Github className="w-5 h-5" />
               </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="hidden lg:block"
-          >
-            <div className="grid grid-cols-3 gap-6">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
-                  className="backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border border-card-border rounded-lg p-6 hover-elevate"
-                >
-                  <div className="text-4xl font-bold font-serif bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </motion.div>
-              ))}
             </div>
           </motion.div>
         </div>
