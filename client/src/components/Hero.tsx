@@ -92,9 +92,7 @@ export default function Hero() {
             </div>
 
             <p className="text-lg text-foreground/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-              MS in Computer Science at DePaul University, specializing in Data Science. 
-              Passionate about developing AI solutions for healthcare and building intelligent systems 
-              that make a real-world impact.
+              Turning messy data into money making decisions
             </p>
 
             <div className="flex justify-center mb-12">
