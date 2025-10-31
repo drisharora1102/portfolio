@@ -98,7 +98,7 @@ export default function Publications() {
                 transition={{ delay: index * 0.05 }}
               >
                 <Card
-                  className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-elevate"
+                  className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-lift hover-glow"
                   data-testid={`publication-${index}`}
                 >
                   <div className="flex items-start justify-between gap-4">

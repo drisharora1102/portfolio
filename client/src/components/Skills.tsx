@@ -129,7 +129,7 @@ export default function Skills() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-elevate h-full">
+                  <Card className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-scale h-full">
                     <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/50">
                       <div className={`p-2.5 rounded-lg bg-gradient-to-br from-${category.color.split('-')[1]}/20 to-${category.color.split('-')[1]}/10 border border-${category.color.split('-')[1]}/30`}>
                         <Icon className={`w-5 h-5 ${category.color}`} />
@@ -149,7 +149,7 @@ export default function Skills() {
                         >
                           <Badge
                             variant="outline"
-                            className="font-mono text-xs px-3 py-1.5 border-border/50 bg-background/40 hover:bg-primary/10 hover:border-primary/30 transition-all"
+                            className="font-mono text-xs px-3 py-1.5 border-border/50 bg-background/40 hover:bg-primary/10 hover:border-primary/30 transition-all cursor-pointer badge-pulse"
                           >
                             {skill}
                           </Badge>

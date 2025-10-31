@@ -62,13 +62,13 @@ export default function Projects() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card
-                  className={`p-0 overflow-hidden backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 cursor-pointer ${
+                  className={`p-0 overflow-hidden backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 cursor-pointer hover-lift ${
                     project.featured ? 'border-primary/40 shadow-lg shadow-primary/5' : ''
                   }`}
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                   data-testid={`project-${index}`}
                 >
-                  <div className="p-6 hover-elevate">
+                  <div className="p-6">
                     {project.featured && (
                       <div className="flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 w-fit">
                         <Sparkles className="w-3.5 h-3.5 text-primary" />

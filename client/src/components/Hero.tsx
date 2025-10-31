@@ -101,37 +101,37 @@ export default function Hero() {
             <div className="flex gap-4 justify-center">
               <a
                 href="mailto:drishtiarora1102@gmail.com"
-                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
+                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
                 data-testid="link-email"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="https://www.linkedin.com/in/aroradrishti/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
+                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
                 data-testid="link-linkedin"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="https://github.com/aroradrishti"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
+                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
                 data-testid="link-github"
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="https://leetcode.com/u/drishtiarora1102/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
+                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
                 data-testid="link-leetcode"
               >
-                <Code2 className="w-5 h-5" />
+                <Code2 className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </motion.div>

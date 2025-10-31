@@ -35,7 +35,7 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
               <button
                 key={tab.id}
                 onClick={() => onTabChange(tab.id)}
-                className="relative px-4 py-2 text-sm font-medium transition-colors"
+                className="relative px-4 py-2 text-sm font-medium transition-all hover:scale-105"
                 data-testid={`nav-${tab.id}`}
               >
                 <span className={tab.id === activeTab ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}>

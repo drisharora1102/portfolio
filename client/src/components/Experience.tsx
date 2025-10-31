@@ -100,9 +100,9 @@ export default function Experience() {
                 >
                   <div className="absolute -left-1.5 top-8 w-3 h-3 rounded-full bg-primary border-2 border-background hidden md:block z-10" />
 
-                  <Card className="md:ml-8 p-0 overflow-hidden backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300">
+                  <Card className="md:ml-8 p-0 overflow-hidden backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-lift">
                     <div
-                      className="cursor-pointer p-6 hover-elevate"
+                      className="cursor-pointer p-6"
                       onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                       data-testid={`experience-${index}`}
                     >
