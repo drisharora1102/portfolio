@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { GraduationCap, Award, Star } from 'lucide-react';
+import { GraduationCap, Star } from 'lucide-react';
 
 const education = [
   {
@@ -21,13 +21,6 @@ const education = [
   },
 ];
 
-const achievements = [
-  'Awarded 100% Merit Scholarship throughout B.Tech program; ranked first in the department (Gold Medalist)',
-  'Awarded "Best Leadership Quality" Salver',
-  'Featured in a Salesforce promotional video for the Virtual Internship Program',
-  'Secured the prestigious AWS AI & ML Scholarship for AI Programming with Python Nanodegree; selected from a pool of 2000 shortlisted candidates worldwide',
-];
-
 export default function About() {
   return (
     <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
@@ -42,7 +35,7 @@ export default function About() {
             Education
           </h2>
 
-          <div className="space-y-6 mb-16">
+          <div className="space-y-6">
             {education.map((edu, index) => (
               <motion.div
                 key={index}
@@ -78,29 +71,6 @@ export default function About() {
                     <span className="text-sm font-mono text-chart-3 font-semibold">
                       GPA: {edu.gpa}
                     </span>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-12 flex items-center gap-3">
-            <Award className="w-8 h-8 text-accent" />
-            Achievements
-          </h2>
-
-          <div className="grid gap-4">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="p-5 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-accent/30 transition-all duration-300 hover-elevate">
-                  <div className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-2 h-2 rounded-full bg-accent mt-2" />
-                    <p className="text-foreground/90 leading-relaxed">{achievement}</p>
                   </div>
                 </Card>
               </motion.div>
