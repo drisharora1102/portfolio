@@ -82,7 +82,7 @@ export default function Experience() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-12 flex items-center gap-3">
-            <Briefcase className="w-8 h-8 text-primary animate-pulse" />
+            <Briefcase className="w-8 h-8 text-primary" />
             Work Experience
           </h2>
 
@@ -97,14 +97,10 @@ export default function Experience() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   className="relative"
-                  whileHover={{ x: 5 }}
                 >
-                  <motion.div 
-                    className="absolute -left-1.5 top-8 w-3 h-3 rounded-full bg-primary border-2 border-background hidden md:block z-10"
-                    whileHover={{ scale: 1.5, boxShadow: '0 0 12px rgba(147, 51, 234, 0.6)' }}
-                  />
+                  <div className="absolute -left-1.5 top-8 w-3 h-3 rounded-full bg-primary border-2 border-background hidden md:block z-10" />
 
-                  <Card className="group md:ml-8 p-0 overflow-hidden backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:scale-[1.01]">
+                  <Card className="md:ml-8 p-0 overflow-hidden backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300">
                     <div
                       className="cursor-pointer p-6 hover-elevate"
                       onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
@@ -113,41 +109,37 @@ export default function Experience() {
                       <div className="flex items-start justify-between gap-4 mb-4">
                         <div className="flex-1">
                           <div className="flex items-start justify-between gap-4 mb-2">
-                            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                            <h3 className="text-xl font-semibold text-foreground">
                               {exp.role}
                             </h3>
-                            <motion.div 
-                              className="flex-shrink-0"
-                              animate={{ rotate: expandedIndex === index ? 180 : 0 }}
-                              transition={{ duration: 0.3 }}
-                            >
+                            <div className="flex-shrink-0">
                               {expandedIndex === index ? (
-                                <ChevronUp className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                                <ChevronUp className="w-5 h-5 text-muted-foreground" />
                               ) : (
-                                <ChevronDown className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                                <ChevronDown className="w-5 h-5 text-muted-foreground" />
                               )}
-                            </motion.div>
+                            </div>
                           </div>
                           <div className="flex flex-col gap-1">
-                            <p className="text-primary font-medium text-lg group-hover:translate-x-2 transition-transform duration-300">{exp.company}</p>
+                            <p className="text-primary font-medium text-lg">{exp.company}</p>
                             {exp.supervisor && (
-                              <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                              <p className="text-sm text-muted-foreground">
                                 {exp.supervisor}
                               </p>
                             )}
                             {exp.location && (
-                              <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{exp.location}</p>
+                              <p className="text-sm text-muted-foreground">{exp.location}</p>
                             )}
                           </div>
                         </div>
                       </div>
 
-                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm font-mono text-primary group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-105 transition-all duration-300">
+                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm font-mono text-primary">
                         {exp.period}
                       </div>
 
                       {exp.project && (
-                        <div className="mt-4 p-4 bg-gradient-to-r from-accent/10 to-accent/5 border-l-2 border-accent rounded-r-md group-hover:from-accent/20 group-hover:to-accent/10 group-hover:border-l-4 transition-all duration-300">
+                        <div className="mt-4 p-4 bg-gradient-to-r from-accent/10 to-accent/5 border-l-2 border-accent rounded-r-md">
                           <p className="text-sm font-medium text-accent">
                             {exp.project}
                           </p>
@@ -167,21 +159,12 @@ export default function Experience() {
                       <div className="px-6 pb-6 pt-2 border-t border-border/50">
                         <div className="space-y-3 mt-4">
                           {exp.achievements.map((achievement, achIndex) => (
-                            <motion.div 
-                              key={achIndex} 
-                              className="flex gap-3 items-start group/item hover:translate-x-2 transition-transform duration-200"
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: achIndex * 0.1 }}
-                            >
-                              <motion.div 
-                                className="w-1.5 h-1.5 rounded-full bg-chart-3 mt-2 flex-shrink-0"
-                                whileHover={{ scale: 2, backgroundColor: 'rgb(var(--accent))' }}
-                              />
-                              <p className="text-sm text-foreground/90 leading-relaxed group-hover/item:text-foreground transition-colors">
+                            <div key={achIndex} className="flex gap-3 items-start group">
+                              <div className="w-1.5 h-1.5 rounded-full bg-chart-3 mt-2 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                              <p className="text-sm text-foreground/90 leading-relaxed">
                                 {achievement}
                               </p>
-                            </motion.div>
+                            </div>
                           ))}
                         </div>
                       </div>
