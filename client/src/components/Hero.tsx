@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Mail, Github, Linkedin, MapPin, Download } from 'lucide-react';
+import { Mail, Github, Linkedin, Download, Code2 } from 'lucide-react';
 import resumePdf from '@assets/Drishti Arora DePaul University_1759465873986.pdf';
 
 export default function Hero() {
@@ -64,16 +64,6 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="flex items-center justify-center gap-2 text-muted-foreground mb-6"
-            >
-              <MapPin className="w-4 h-4" />
-              <span className="text-sm">Chicago, IL</span>
-            </motion.div>
-
             <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6">
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-300% animate-gradient">
                 Drishti Arora
@@ -133,6 +123,15 @@ export default function Hero() {
                 data-testid="link-github"
               >
                 <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="https://leetcode.com/u/drishtiarora1102/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border"
+                data-testid="link-leetcode"
+              >
+                <Code2 className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
