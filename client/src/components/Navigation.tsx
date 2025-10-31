@@ -9,11 +9,12 @@ interface NavigationProps {
 const tabs = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'Education' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Work Experience' },
+  { id: 'projects', label: 'Academic Projects' },
   { id: 'publications', label: 'Publications' },
   { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'certifications', label: 'Certifications' },
+  { id: 'contact', label: 'Contact Me' },
 ];
 
 export default function Navigation({ activeTab, onTabChange }: NavigationProps) {
