@@ -9,12 +9,14 @@ const publications = [
     journal: 'Osong Public Health and Research Perspectives',
     type: 'Journal',
     status: 'Published',
+    link: 'https://ophrp.org/journal/view.php?number=793',
   },
   {
     title: 'Performance Evaluation of Machine Learning Classifiers for Brain Stroke Prediction',
     journal: 'International Journal of Bioinformatics Research and Applications',
     type: 'Journal',
     status: 'Published',
+    link: 'https://www.inderscience.com/info/inarticle.php?artid=137369',
   },
   {
     title: 'Multi-head Attention based Vision Transformer Network for Breast Cancer Classification using GAN-Augmented Pathological Images',
@@ -33,24 +35,28 @@ const publications = [
     journal: '2023 IEEE Pune Section\'s International Conference (IEEE PuneCon2023)',
     type: 'Conference',
     status: 'Published',
+    link: 'https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Drishti%20Arora%20skin%20cancer%20PuneCon',
   },
   {
     title: 'Advancements in Breast Cancer Detection: A Comprehensive Review of Deep Learning Techniques',
     journal: 'IEEE International Conference on Artificial Intelligence for Innovations in Healthcare Industries (ICAIIHI-2023)',
     type: 'Conference',
     status: 'Published',
+    link: 'https://www.researchgate.net/publication/377713158',
   },
   {
     title: 'Quora Question Sincerity Detection Using BERT-Based Framework',
     journal: '14th International Conference on Cloud Computing, Data Science & Engineering',
     type: 'Conference',
     status: 'Published',
+    link: 'https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Drishti%20Arora%20Quora%20BERT',
   },
   {
     title: 'Structured Implementation of ML Algorithms for Cardiovascular Disease Detection',
     journal: '5th International Conference on Computing, Power, and Communication Technologies (IC2PCT)',
     type: 'Conference',
     status: 'Published',
+    link: 'https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Drishti%20Arora%20cardiovascular',
   },
 ];
 
@@ -123,17 +129,17 @@ export default function Publications() {
                       <p className="text-sm text-muted-foreground italic">{pub.journal}</p>
                     </div>
 
-                    {pub.status === 'Published' && (
-                      <button
+                    {pub.status === 'Published' && pub.link && (
+                      <a
+                        href={pub.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex-shrink-0 p-2.5 hover-elevate active-elevate-2 rounded-md border border-border bg-background/50"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          console.log('View publication', pub.title);
-                        }}
+                        onClick={(e) => e.stopPropagation()}
                         data-testid={`link-publication-${index}`}
                       >
                         <ExternalLink className="w-4 h-4 text-primary" />
-                      </button>
+                      </a>
                     )}
                   </div>
                 </Card>
