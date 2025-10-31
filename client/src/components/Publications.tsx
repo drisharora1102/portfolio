@@ -70,23 +70,37 @@ export default function Publications() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4 flex items-center gap-3">
-            <BookOpen className="w-8 h-8 text-primary" />
+            <BookOpen className="w-8 h-8 text-primary animate-pulse" />
             Publications
           </h2>
 
           <div className="flex gap-6 mb-12">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-chart-3" />
+            <motion.div 
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div 
+                className="w-2 h-2 rounded-full bg-chart-3"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
               <span className="text-muted-foreground text-sm">
                 {publications.filter(p => p.status === 'Published').length} Published
               </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-accent" />
+            </motion.div>
+            <motion.div 
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div 
+                className="w-2 h-2 rounded-full bg-accent"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              />
               <span className="text-muted-foreground text-sm">
                 {publications.filter(p => p.status === 'Submitted').length} Under Review
               </span>
-            </div>
+            </motion.div>
           </div>
 
           <div className="space-y-4">
@@ -96,50 +110,57 @@ export default function Publications() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.05 }}
+                whileHover={{ x: 5, scale: 1.01 }}
               >
                 <Card
-                  className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-elevate"
+                  className="group p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
                   data-testid={`publication-${index}`}
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
-                        <Badge
-                          variant={pub.type === 'Journal' ? 'default' : 'secondary'}
-                          className="text-xs font-mono px-2.5 py-0.5"
-                        >
-                          {pub.type}
-                        </Badge>
-                        <Badge
-                          variant={pub.status === 'Published' ? 'default' : 'outline'}
-                          className={`text-xs font-mono px-2.5 py-0.5 ${
-                            pub.status === 'Published'
-                              ? 'bg-chart-3/20 text-chart-3 border-chart-3/30'
-                              : 'border-accent/30 text-accent bg-accent/5'
-                          }`}
-                        >
-                          {pub.status}
-                        </Badge>
+                        <motion.div whileHover={{ scale: 1.1, rotate: 2 }}>
+                          <Badge
+                            variant={pub.type === 'Journal' ? 'default' : 'secondary'}
+                            className="text-xs font-mono px-2.5 py-0.5"
+                          >
+                            {pub.type}
+                          </Badge>
+                        </motion.div>
+                        <motion.div whileHover={{ scale: 1.1, rotate: -2 }}>
+                          <Badge
+                            variant={pub.status === 'Published' ? 'default' : 'outline'}
+                            className={`text-xs font-mono px-2.5 py-0.5 ${
+                              pub.status === 'Published'
+                                ? 'bg-chart-3/20 text-chart-3 border-chart-3/30'
+                                : 'border-accent/30 text-accent bg-accent/5'
+                            }`}
+                          >
+                            {pub.status}
+                          </Badge>
+                        </motion.div>
                       </div>
 
-                      <h3 className="text-lg font-semibold text-foreground mb-3 leading-snug">
+                      <h3 className="text-lg font-semibold text-foreground mb-3 leading-snug group-hover:text-primary transition-colors duration-300">
                         {pub.title}
                       </h3>
 
-                      <p className="text-sm text-muted-foreground italic">{pub.journal}</p>
+                      <p className="text-sm text-muted-foreground italic group-hover:text-foreground transition-colors">{pub.journal}</p>
                     </div>
 
                     {pub.status === 'Published' && pub.link && (
-                      <a
+                      <motion.a
                         href={pub.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-shrink-0 p-2.5 hover-elevate active-elevate-2 rounded-md border border-border bg-background/50"
                         onClick={(e) => e.stopPropagation()}
                         data-testid={`link-publication-${index}`}
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        whileTap={{ scale: 0.95 }}
                       >
                         <ExternalLink className="w-4 h-4 text-primary" />
-                      </a>
+                      </motion.a>
                     )}
                   </div>
                 </Card>
