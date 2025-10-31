@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { Mail, Linkedin, Github, Send, Code2 } from 'lucide-react';
+import { Mail, Linkedin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -72,34 +72,6 @@ export default function Contact() {
                         <div className="flex-1">
                           <span className="text-sm font-medium">LinkedIn</span>
                           <p className="text-xs text-muted-foreground">Professional Network</p>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </a>
-                      <a
-                        href="https://github.com/aroradrishti"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-background to-card border border-border hover:border-primary/50 transition-all hover-elevate active-elevate-2 group"
-                        data-testid="link-github-contact"
-                      >
-                        <Github className="w-5 h-5 text-primary" />
-                        <div className="flex-1">
-                          <span className="text-sm font-medium">GitHub</span>
-                          <p className="text-xs text-muted-foreground">Code Repository</p>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </a>
-                      <a
-                        href="https://leetcode.com/u/drishtiarora1102/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-background to-card border border-border hover:border-primary/50 transition-all hover-elevate active-elevate-2 group"
-                        data-testid="link-leetcode-contact"
-                      >
-                        <Code2 className="w-5 h-5 text-primary" />
-                        <div className="flex-1">
-                          <span className="text-sm font-medium">LeetCode</span>
-                          <p className="text-xs text-muted-foreground">Coding Practice</p>
                         </div>
                         <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
