@@ -23,8 +23,8 @@ const education = [
 
 export default function About() {
   return (
-    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,31 +44,31 @@ export default function About() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-lift">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 sm:gap-4 mb-4">
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-foreground mb-2">
                         {edu.school}
                       </h3>
-                      <p className="text-muted-foreground text-sm flex items-center gap-1.5">
+                      <p className="text-muted-foreground text-base flex items-center gap-1.5">
                         <span className="w-1 h-1 rounded-full bg-muted-foreground" />
                         {edu.location}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm font-mono text-primary h-fit">
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm sm:text-base font-mono text-primary h-fit w-fit">
                       {edu.period}
                     </div>
                   </div>
                   
                   <div className="space-y-2 mb-4">
                     <p className="text-foreground font-medium">{edu.degree}</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-base text-muted-foreground">
                       Concentration: {edu.concentration}
                     </p>
                   </div>
 
                   <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-chart-3/20 to-chart-3/10 border border-chart-3/30 w-fit">
                     <Star className="w-4 h-4 text-chart-3" />
-                    <span className="text-sm font-mono text-chart-3 font-semibold">
+                    <span className="text-base font-mono text-chart-3 font-semibold">
                       GPA: {edu.gpa}
                     </span>
                   </div>

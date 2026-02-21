@@ -84,7 +84,7 @@ export default function Portfolio() {
       </section>
 
       <footer className="border-t border-border py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="text-center text-muted-foreground text-sm">
             <p>&copy; {new Date().getFullYear()} Drishti Arora. All rights reserved.</p>
           </div>

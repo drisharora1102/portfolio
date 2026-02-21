@@ -20,8 +20,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <div className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <Card className="p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 h-full">
+              <Card className="p-5 sm:p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 h-full">
                 <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
 
                 <div className="space-y-6">
@@ -47,10 +47,10 @@ export default function Contact() {
                       <Mail className="w-5 h-5 text-accent" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">Email</p>
+                      <p className="text-sm sm:text-base text-muted-foreground mb-1">Email</p>
                       <a
                         href="mailto:drishtiarora1102@gmail.com"
-                        className="text-foreground font-medium hover:text-accent transition-colors"
+                        className="text-foreground font-medium hover:text-accent transition-colors break-all"
                         data-testid="link-email-contact"
                       >
                         drishtiarora1102@gmail.com
@@ -59,7 +59,7 @@ export default function Contact() {
                   </div>
 
                   <div className="pt-6 border-t border-border/50">
-                    <p className="text-sm text-muted-foreground mb-4">Connect with me</p>
+                    <p className="text-sm sm:text-base text-muted-foreground mb-4">Connect with me</p>
                     <div className="flex flex-col gap-3">
                       <a
                         href="https://www.linkedin.com/in/aroradrishti/"
@@ -70,8 +70,8 @@ export default function Contact() {
                       >
                         <Linkedin className="w-5 h-5 text-primary" />
                         <div className="flex-1">
-                          <span className="text-sm font-medium">LinkedIn</span>
-                          <p className="text-xs text-muted-foreground">Professional Network</p>
+                          <span className="text-sm sm:text-base font-medium">LinkedIn</span>
+                          <p className="text-xs sm:text-sm text-muted-foreground">Professional Network</p>
                         </div>
                         <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
@@ -86,7 +86,7 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <Card className="p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50">
+              <Card className="p-5 sm:p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50">
                 <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">

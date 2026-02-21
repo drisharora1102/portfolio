@@ -5,6 +5,13 @@
 /* Smooth scrolling for sections */
 html {
   scroll-behavior: smooth;
+  font-size: clamp(16px, 0.2vw + 15px, 19px);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
 }
 
 section {
@@ -251,7 +258,7 @@ section {
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-background text-foreground text-base leading-relaxed;
   }
 }
 

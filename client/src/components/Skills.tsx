@@ -8,7 +8,8 @@ const skillCategories = [
   {
     title: 'Domain Expertise',
     icon: Cpu,
-    color: 'text-primary',
+    iconClass: 'text-primary',
+    iconBoxClass: 'from-primary/20 to-primary/10 border-primary/30',
     skills: [
       'Data Science & Analytics',
       'Machine Learning',
@@ -16,7 +17,7 @@ const skillCategories = [
       'LLMs',
       'Statistical Modeling',
       'Data Visualization',
-      'Human-Robot Interaction (ROS)',
+      'Human-Robot Interaction',
       'Conversational Speech Systems',
       'Recommender Systems',
       'Chatbot Development',
@@ -27,7 +28,8 @@ const skillCategories = [
   {
     title: 'Technical Skills',
     icon: Code,
-    color: 'text-accent',
+    iconClass: 'text-accent',
+    iconBoxClass: 'from-accent/20 to-accent/10 border-accent/30',
     skills: [
       'Python',
       'R',
@@ -45,7 +47,8 @@ const skillCategories = [
   {
     title: 'Tools & Platforms',
     icon: Database,
-    color: 'text-chart-3',
+    iconClass: 'text-chart-3',
+    iconBoxClass: 'from-chart-3/20 to-chart-3/10 border-chart-3/30',
     skills: [
       'MySQL',
       'Oracle Database',
@@ -62,7 +65,8 @@ const skillCategories = [
   {
     title: 'Soft Skills',
     icon: Lightbulb,
-    color: 'text-chart-4',
+    iconClass: 'text-chart-4',
+    iconBoxClass: 'from-chart-4/20 to-chart-4/10 border-chart-4/30',
     skills: [
       'Problem-Solving',
       'Critical Thinking',
@@ -82,8 +86,8 @@ export default function Skills() {
     : skillCategories;
 
   return (
-    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -94,7 +98,7 @@ export default function Skills() {
           <div className="flex flex-wrap gap-3 mb-12">
             <button
               onClick={() => setSelectedCategory(null)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-lg text-sm sm:text-base font-medium transition-all ${
                 selectedCategory === null
                   ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
                   : 'bg-card/50 text-muted-foreground border border-border hover-elevate'
@@ -107,7 +111,7 @@ export default function Skills() {
               <button
                 key={category.title}
                 onClick={() => setSelectedCategory(category.title)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-lg text-sm sm:text-base font-medium transition-all ${
                   selectedCategory === category.title
                     ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
                     : 'bg-card/50 text-muted-foreground border border-border hover-elevate'
@@ -131,8 +135,8 @@ export default function Skills() {
                 >
                   <Card className="p-6 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover:border-primary/30 transition-all duration-300 hover-scale h-full">
                     <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/50">
-                      <div className={`p-2.5 rounded-lg bg-gradient-to-br from-${category.color.split('-')[1]}/20 to-${category.color.split('-')[1]}/10 border border-${category.color.split('-')[1]}/30`}>
-                        <Icon className={`w-5 h-5 ${category.color}`} />
+                      <div className={`p-2.5 rounded-lg bg-gradient-to-br border ${category.iconBoxClass}`}>
+                        <Icon className={`w-5 h-5 ${category.iconClass}`} />
                       </div>
                       <h3 className="text-xl font-semibold text-foreground">
                         {category.title}
@@ -149,7 +153,7 @@ export default function Skills() {
                         >
                           <Badge
                             variant="outline"
-                            className="font-mono text-xs px-3 py-1.5 border-border/50 bg-background/40 hover:bg-primary/10 hover:border-primary/30 transition-all cursor-pointer badge-pulse"
+                            className="font-mono text-xs sm:text-sm px-3 py-1.5 border-border/50 bg-background/40 hover:bg-primary/10 hover:border-primary/30 transition-all cursor-pointer badge-pulse"
                           >
                             {skill}
                           </Badge>

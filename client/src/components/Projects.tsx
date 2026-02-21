@@ -41,8 +41,8 @@ export default function Projects() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <div className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export default function Projects() {
                     {project.featured && (
                       <div className="flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 w-fit">
                         <Sparkles className="w-3.5 h-3.5 text-primary" />
-                        <span className="text-xs font-mono text-primary uppercase tracking-wider font-semibold">
+                        <span className="text-xs sm:text-sm font-mono text-primary uppercase tracking-wider font-semibold">
                           Featured
                         </span>
                       </div>
@@ -100,7 +100,7 @@ export default function Projects() {
                         <Badge
                           key={techIndex}
                           variant="outline"
-                          className="font-mono text-xs border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors"
+                            className="font-mono text-xs sm:text-sm border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors"
                         >
                           {tech}
                         </Badge>
@@ -119,13 +119,13 @@ export default function Projects() {
                   >
                     <div className="px-6 pb-6 border-t border-border/50">
                       <div className="space-y-3 mt-4">
-                        <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+                        <h4 className="text-sm sm:text-base font-semibold text-foreground uppercase tracking-wide">
                           Key Achievements
                         </h4>
                         {project.achievements.map((achievement, achIndex) => (
                           <div key={achIndex} className="flex gap-3 items-start group">
                             <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0 group-hover:scale-150 transition-transform" />
-                            <p className="text-sm text-foreground/80">{achievement}</p>
+                            <p className="text-base text-foreground/80">{achievement}</p>
                           </div>
                         ))}
                       </div>

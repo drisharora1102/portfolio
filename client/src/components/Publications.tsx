@@ -62,8 +62,8 @@ const publications = [
 
 export default function Publications() {
   return (
-    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,16 +74,16 @@ export default function Publications() {
             Publications
           </h2>
 
-          <div className="flex gap-6 mb-12">
+          <div className="flex flex-wrap gap-4 sm:gap-6 mb-12">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-chart-3" />
-              <span className="text-muted-foreground text-sm">
+              <span className="text-muted-foreground text-base">
                 {publications.filter(p => p.status === 'Published').length} Published
               </span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-accent" />
-              <span className="text-muted-foreground text-sm">
+              <span className="text-muted-foreground text-base">
                 {publications.filter(p => p.status === 'Submitted').length} Under Review
               </span>
             </div>
@@ -106,13 +106,13 @@ export default function Publications() {
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <Badge
                           variant={pub.type === 'Journal' ? 'default' : 'secondary'}
-                          className="text-xs font-mono px-2.5 py-0.5"
+                          className="text-xs sm:text-sm font-mono px-2.5 py-0.5"
                         >
                           {pub.type}
                         </Badge>
                         <Badge
                           variant={pub.status === 'Published' ? 'default' : 'outline'}
-                          className={`text-xs font-mono px-2.5 py-0.5 ${
+                          className={`text-xs sm:text-sm font-mono px-2.5 py-0.5 ${
                             pub.status === 'Published'
                               ? 'bg-chart-3/20 text-chart-3 border-chart-3/30'
                               : 'border-accent/30 text-accent bg-accent/5'
@@ -122,11 +122,11 @@ export default function Publications() {
                         </Badge>
                       </div>
 
-                      <h3 className="text-lg font-semibold text-foreground mb-3 leading-snug">
+                      <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3 leading-snug">
                         {pub.title}
                       </h3>
 
-                      <p className="text-sm text-muted-foreground italic">{pub.journal}</p>
+                      <p className="text-base text-muted-foreground italic">{pub.journal}</p>
                     </div>
 
                     {pub.status === 'Published' && pub.link && (

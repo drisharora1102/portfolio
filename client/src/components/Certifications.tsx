@@ -14,6 +14,7 @@ const certifications = [
 ];
 
 const achievements = [
+  'Awared Graduate Research Assistanship Position at DePaul University',
   'Awarded 100% Merit Scholarship throughout B.Tech program; ranked first in the department (Gold Medalist)',
   'Awarded "Best Leadership Quality" Salver',
   'Featured in a Salesforce promotional video for the Virtual Internship Program',
@@ -22,8 +23,8 @@ const achievements = [
 
 export default function Certifications() {
   return (
-    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,7 +38,7 @@ export default function Certifications() {
             transition={{ delay: 0.2 }}
             className="mb-12"
           >
-            <Card className="p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover-scale">
+            <Card className="p-5 sm:p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover-scale">
               <h3 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
                 <GraduationCap className="w-6 h-6 text-accent icon-spin-hover" />
                 Certifications
@@ -52,7 +53,7 @@ export default function Certifications() {
                     className="flex gap-3 items-start p-4 rounded-lg bg-gradient-to-r from-background/50 to-card/30 border border-border/30 hover:border-accent/30 transition-all hover-lift cursor-pointer"
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                    <p className="text-sm text-foreground/80 leading-relaxed">{cert}</p>
+                    <p className="text-base text-foreground/80 leading-relaxed">{cert}</p>
                   </motion.div>
                 ))}
               </div>
@@ -64,7 +65,7 @@ export default function Certifications() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <Card className="p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover-scale">
+            <Card className="p-5 sm:p-8 backdrop-blur-md bg-gradient-to-br from-card/80 to-card/40 border-card-border/50 hover-scale">
               <h3 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
                 <Award className="w-6 h-6 text-chart-4 icon-spin-hover" />
                 Achievements

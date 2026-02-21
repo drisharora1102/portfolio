@@ -32,7 +32,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[calc(100vh-4.25rem)] flex items-center justify-center overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
       
       <div className="absolute inset-0 overflow-hidden opacity-30">
@@ -57,21 +57,21 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="relative z-10 max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-10">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold mb-4 sm:mb-5">
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-300% animate-gradient">
                 Drishti Arora
               </span>
             </h1>
 
-            <div className="h-8 mb-8">
-              <p className="text-xl md:text-2xl text-muted-foreground font-mono">
+            <div className="min-h-[2.7rem] mb-5 sm:mb-7">
+              <p className="text-xl sm:text-2xl lg:text-[2rem] text-muted-foreground font-mono">
                 {displayText}
                 <motion.span
                   animate={{ opacity: [1, 0] }}
@@ -81,11 +81,11 @@ export default function Hero() {
               </p>
             </div>
 
-            <p className="text-lg text-foreground/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-foreground/90 mb-6 sm:mb-7 leading-relaxed max-w-2xl mx-auto">
               Turning messy data into money making decisions
             </p>
 
-            <div className="flex justify-center mb-12">
+            <div className="flex justify-center mb-8 sm:mb-12">
               <Button 
                 variant="outline" 
                 size="lg" 
@@ -98,10 +98,10 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="flex gap-4 justify-center">
+            <div className="flex gap-3 sm:gap-4 justify-center">
               <a
                 href="mailto:drishtiarora1102@gmail.com"
-                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
+                className="p-2.5 sm:p-3 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
                 data-testid="link-email"
               >
                 <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -110,7 +110,7 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/aroradrishti/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
+                className="p-2.5 sm:p-3 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
                 data-testid="link-linkedin"
               >
                 <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -119,7 +119,7 @@ export default function Hero() {
                 href="https://github.com/aroradrishti"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
+                className="p-2.5 sm:p-3 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
                 data-testid="link-github"
               >
                 <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -128,7 +128,7 @@ export default function Hero() {
                 href="https://leetcode.com/u/drishtiarora1102/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
+                className="p-2.5 sm:p-3 hover-elevate active-elevate-2 rounded-md border border-border hover-glow group"
                 data-testid="link-leetcode"
               >
                 <Code2 className="w-5 h-5 group-hover:scale-110 transition-transform" />

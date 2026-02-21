@@ -74,8 +74,8 @@ export default function Experience() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
   return (
-    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <div className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -123,24 +123,24 @@ export default function Experience() {
                           <div className="flex flex-col gap-1">
                             <p className="text-primary font-medium text-lg">{exp.company}</p>
                             {exp.supervisor && (
-                              <p className="text-sm text-muted-foreground">
+                              <p className="text-base text-muted-foreground">
                                 {exp.supervisor}
                               </p>
                             )}
                             {exp.location && (
-                              <p className="text-sm text-muted-foreground">{exp.location}</p>
+                              <p className="text-base text-muted-foreground">{exp.location}</p>
                             )}
                           </div>
                         </div>
                       </div>
 
-                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm font-mono text-primary">
+                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm sm:text-base font-mono text-primary">
                         {exp.period}
                       </div>
 
                       {exp.project && (
                         <div className="mt-4 p-4 bg-gradient-to-r from-accent/10 to-accent/5 border-l-2 border-accent rounded-r-md">
-                          <p className="text-sm font-medium text-accent">
+                          <p className="text-base font-medium text-accent">
                             {exp.project}
                           </p>
                         </div>
@@ -161,7 +161,7 @@ export default function Experience() {
                           {exp.achievements.map((achievement, achIndex) => (
                             <div key={achIndex} className="flex gap-3 items-start group">
                               <div className="w-1.5 h-1.5 rounded-full bg-chart-3 mt-2 flex-shrink-0 group-hover:scale-150 transition-transform" />
-                              <p className="text-sm text-foreground/90 leading-relaxed">
+                              <p className="text-base text-foreground/90 leading-relaxed">
                                 {achievement}
                               </p>
                             </div>
